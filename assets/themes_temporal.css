@@ -1,0 +1,495 @@
+/* ================================================================
+   themes_temporal.css
+   Styles EXCLUSIFS à la page Thèmes & Temporel
+   Grille 3×2 (3 lignes, 2 colonnes)
+================================================================ */
+
+.themes-temporal-page {
+  --tt-blue: #003087;
+  --tt-green: #04723b;
+  --tt-red: #e8384f;
+  --tt-amber: #f59e0b;
+  --tt-blue-mid: #4a80d4;
+  --tt-card-bg: var(--card-bg, #ffffff);
+  --tt-page-bg: var(--bg, #f4f6fb);
+  --tt-border: rgba(0, 0, 0, 0.08);
+  --tt-radius: 13px;
+  --tt-radius-sm: 8px;
+  --tt-gap: 12px;
+  --tt-text: var(--text-primary, #1a2a4a);
+  --tt-muted: var(--text-secondary, #64748b);
+  --tt-hint: #94a3b8;
+  --kpi-bar-bg: rgba(0, 0, 0, 0.07);
+}
+
+[data-theme="dark"] .themes-temporal-page {
+  --tt-border: rgba(255, 255, 255, 0.09);
+  --tt-card-bg: #1a2540;
+  --tt-page-bg: #141c2e;
+  --kpi-bar-bg: rgba(255, 255, 255, 0.08);
+}
+
+/* ================================================================
+   HEADER
+================================================================ */
+
+.themes-temporal-page .dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--tt-border);
+}
+
+.themes-temporal-page .date-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  color: var(--tt-muted);
+  background: var(--tt-card-bg);
+  border: 1px solid var(--tt-border);
+  border-radius: 6px;
+  padding: 4px 9px;
+}
+
+.themes-temporal-page #tt-refresh-btn {
+  background: var(--tt-blue);
+  border: none;
+  color: #fff;
+  padding: 5px 11px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.themes-temporal-page #tt-refresh-btn:hover {
+  background: #1a4fa0;
+  transform: scale(1.02);
+}
+
+.themes-temporal-page #tt-refresh-btn:active {
+  transform: scale(0.97);
+}
+
+/* ================================================================
+   GRILLE 3×2 (3 lignes, 2 colonnes)
+================================================================ */
+
+.themes-temporal-page .grid-3x2 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--tt-gap);
+}
+
+.themes-temporal-page .grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--tt-gap);
+  align-items: stretch;
+}
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+
+@media (max-width: 860px) {
+  .themes-temporal-page .grid-row {
+    grid-template-columns: 1fr;
+    gap: var(--tt-gap);
+  }
+}
+
+/* ================================================================
+   CARTE GÉNÉRIQUE
+================================================================ */
+
+.themes-temporal-page .chart-card {
+  background: var(--tt-card-bg);
+  border: 1px solid var(--tt-border);
+  border-radius: var(--tt-radius);
+  padding: 13px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(0, 48, 135, 0.04);
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+  height: 100%;
+}
+
+.themes-temporal-page .chart-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 48, 135, 0.09);
+  transform: translateY(-1px);
+}
+
+/* ---------- En-tête de carte ---------- */
+.themes-temporal-page .card-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--tt-border);
+  margin-bottom: 2px;
+}
+
+.themes-temporal-page .card-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 48, 135, 0.07);
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .themes-temporal-page .card-icon {
+  background: rgba(74, 128, 212, 0.15);
+}
+
+.themes-temporal-page .card-icon i {
+  font-size: 13px;
+  color: var(--tt-blue);
+}
+
+.themes-temporal-page .card-icon--red {
+  background: rgba(232, 56, 79, 0.08);
+}
+
+.themes-temporal-page .card-icon--red i {
+  color: var(--tt-red);
+}
+
+.themes-temporal-page .card-icon--green {
+  background: rgba(0, 168, 84, 0.08);
+}
+
+.themes-temporal-page .card-icon--green i {
+  color: var(--tt-green);
+}
+
+.themes-temporal-page .card-icon--mid {
+  background: rgba(74, 128, 212, 0.08);
+}
+
+.themes-temporal-page .card-icon--mid i {
+  color: var(--tt-blue-mid);
+}
+
+.themes-temporal-page .card-icon--amber {
+  background: rgba(245, 158, 11, 0.10);
+}
+
+.themes-temporal-page .card-icon--amber i {
+  color: var(--tt-amber);
+}
+
+[data-theme="dark"] .themes-temporal-page .card-icon--red {
+  background: rgba(232, 56, 79, 0.15);
+}
+
+[data-theme="dark"] .themes-temporal-page .card-icon--green {
+  background: rgba(0, 168, 84, 0.15);
+}
+
+[data-theme="dark"] .themes-temporal-page .card-icon--mid {
+  background: rgba(74, 128, 212, 0.15);
+}
+
+[data-theme="dark"] .themes-temporal-page .card-icon--amber {
+  background: rgba(245, 158, 11, 0.15);
+}
+
+.themes-temporal-page .card-title {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--tt-muted);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  flex: 1;
+}
+
+/* ---------- Contenu carte ---------- */
+.themes-temporal-page .card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================================================================
+   THEMES TEMPORAL - TOOLTIPS
+   Style identique à celui demandé
+================================================================ */
+
+.themes-temporal-page .tooltip-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  margin-left: auto;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.themes-temporal-page .tooltip-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--tt-page-bg, #f4f6fb);
+  border: 1px solid var(--tt-border, rgba(0, 0, 0, 0.08));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: help;
+  transition: all 0.2s;
+}
+
+.themes-temporal-page .tooltip-icon:hover {
+  background: var(--tt-card-bg, #ffffff);
+  border-color: var(--tt-blue, #003087);
+  transform: scale(1.05);
+}
+
+.themes-temporal-page .tooltip-icon i {
+  font-size: 10px;
+  color: var(--tt-muted, #64748b);
+}
+
+.themes-temporal-page .card-tooltip {
+  position: absolute;
+  bottom: auto;
+  top: 100%;
+  right: 0;
+  transform: translateY(8px);
+  background: #1a2540;
+  color: #ffffff;
+  font-size: 11px;
+  line-height: 1.6;
+  padding: 10px 14px;
+  border-radius: 10px;
+  width: 250px;
+  max-width: 85vw;
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(74, 128, 212, 0.3);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 1000;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  backdrop-filter: blur(12px);
+}
+
+/* Mode clair - tooltip plus clair */
+[data-theme="light"] .themes-temporal-page .card-tooltip {
+  background: #1a2a4a;
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 48, 135, 0.2);
+}
+
+.themes-temporal-page .tooltip-wrapper:hover .card-tooltip {
+  opacity: 1;
+  transform: translateY(12px);
+}
+
+.themes-temporal-page .card-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: 12px;
+  width: 12px;
+  height: 12px;
+  background: #1a2540;
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+
+[data-theme="light"] .themes-temporal-page .card-tooltip::before {
+  background: #1a2a4a;
+}
+
+.themes-temporal-page .card-tooltip .tooltip-title {
+  font-weight: 800;
+  font-size: 11px;
+  margin-bottom: 5px;
+  color: #4a80d4;
+  border-bottom: 1px solid rgba(74, 128, 212, 0.3);
+  padding-bottom: 4px;
+}
+
+.themes-temporal-page .card-tooltip .tooltip-body {
+  color: #dce8f5;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* Mode clair - texte du tooltip */
+[data-theme="light"] .themes-temporal-page .card-tooltip .tooltip-body {
+  color: #c8d4e8;
+}
+
+/* ================================================================
+   LISTE SUJETS (Topics)
+================================================================ */
+
+.themes-temporal-page .tt-topics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: auto;
+  max-height: 100%;
+  padding-right: 2px;
+}
+
+.themes-temporal-page .tt-topics-list::-webkit-scrollbar {
+  width: 3px;
+}
+
+.themes-temporal-page .tt-topics-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.themes-temporal-page .tt-topics-list::-webkit-scrollbar-thumb {
+  background: var(--tt-border);
+  border-radius: 2px;
+}
+
+.themes-temporal-page .tt-topic-item {
+  padding: 7px 9px;
+  border-radius: var(--tt-radius-sm);
+  border: 1px solid var(--tt-border);
+  background: var(--tt-page-bg);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.themes-temporal-page .tt-topic-item:hover {
+  border-color: rgba(0, 48, 135, 0.20);
+  background: var(--tt-card-bg);
+}
+
+/* ================================================================
+   BADGES STATUT
+================================================================ */
+
+.themes-temporal-page .tt-badge {
+  display: inline-block;
+  font-size: 7.5px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+}
+
+.themes-temporal-page .tt-badge-crit {
+  background: rgba(232, 56, 79, 0.10);
+  color: #b0283a;
+}
+
+.themes-temporal-page .tt-badge-warn {
+  background: rgba(245, 158, 11, 0.12);
+  color: #92600a;
+}
+
+.themes-temporal-page .tt-badge-ok {
+  background: rgba(0, 168, 84, 0.10);
+  color: #007c3e;
+}
+
+[data-theme="dark"] .themes-temporal-page .tt-badge-crit {
+  background: rgba(232, 56, 79, 0.18);
+  color: #f06070;
+}
+
+[data-theme="dark"] .themes-temporal-page .tt-badge-warn {
+  background: rgba(245, 158, 11, 0.18);
+  color: #f39c12;
+}
+
+[data-theme="dark"] .themes-temporal-page .tt-badge-ok {
+  background: rgba(0, 168, 84, 0.18);
+  color: #2ecc71;
+}
+
+/* ================================================================
+   BANNER ANOMALIE
+================================================================ */
+
+.themes-temporal-page #tt-anomaly-banner-container {
+  margin-bottom: 6px;
+}
+
+/* ================================================================
+   MINI BARRE PROGRESSION TOPIC
+================================================================ */
+
+.themes-temporal-page .tt-topic-bar-track {
+  height: 3px;
+  background: var(--kpi-bar-bg);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.themes-temporal-page .tt-topic-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Fix - Empêcher les icônes de devenir blanches au hover */
+.chart-card .card-icon i,
+.chart-card .card-icon svg,
+.card-icon i,
+.card-icon svg {
+  transition: color 0.2s ease;
+}
+
+.chart-card .card-icon i:hover,
+.card-icon i:hover {
+  color: inherit !important;
+}
+
+/* Garder la couleur originale des icônes selon leur variant */
+.card-icon--mid i {
+  color: #003087 !important;
+}
+
+.card-icon--red i {
+  color: #003087 !important;
+}
+
+.card-icon--green i {
+  color: #003087 !important;
+}
+
+.card-icon i {
+  color: #003087 !important;
+}
+
+/* Sur hover de la carte entière, les icônes ne changent pas */
+.chart-card:hover .card-icon i {
+  color: inherit !important;
+}
+
+.chart-card:hover .card-icon--mid i {
+  color: #003087 !important;
+}
+
+.chart-card:hover .card-icon--red i {
+  color: #e8384f !important;
+}
+
+.chart-card:hover .card-icon--green i {
+  color: #00a854 !important;
+}

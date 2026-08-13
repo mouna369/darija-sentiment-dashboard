@@ -1,0 +1,109 @@
+/* ============================================================
+   PAGE SOURCES — Extension du design system Dashboard AT
+   ✅ Cartes ligne 1 même hauteur
+   ✅ KPI supprimés
+   ✅ Dark mode Plotly
+   ============================================================ */
+
+/* ── Wrapper sources ─────────────────────────────────────────── */
+#sources-wrapper {
+  background: var(--bg-page);
+  min-height: 100vh;
+}
+
+#sources-wrapper .dashboard-container {
+  padding: 12px 16px;
+  max-width: 1800px;
+  margin: 0 auto;
+  animation: dashIn 0.4s ease-out both;
+}
+
+/* ── Grille 2 colonnes 50/50 ─────────────────────────────────── */
+#sources-wrapper .row-2cols {
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch; /* les deux colonnes s'étirent à la même hauteur */
+}
+
+/* ── Cartes de la ligne 1 (donut + barres) : même hauteur ────── */
+#sources-wrapper .row-2cols .chart-card {
+  min-height: 420px !important;
+  height: 100% !important;
+  max-height: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#sources-wrapper .row-2cols .card-content {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow-y: visible !important;
+  max-height: none !important;
+}
+
+/* ── Toutes les autres chart-cards : hauteur libre ───────────── */
+#sources-wrapper .chart-card {
+  min-height: auto;
+  max-height: none;
+  height: auto;
+}
+
+#sources-wrapper .card-content {
+  overflow-y: visible !important;
+  max-height: none !important;
+  height: auto !important;
+}
+
+/* ── Tableau ─────────────────────────────────────────────────── */
+#sources-wrapper table {
+  font-family: 'DM Sans', sans-serif;
+}
+
+#sources-wrapper table tr:hover td {
+  background: var(--hover-bg) !important;
+  transition: background 0.15s ease;
+}
+
+/* ── Plotly dark mode ─────────────────────────────────────────── */
+#sources-wrapper[data-theme="dark"] .js-plotly-plot .main-svg,
+#sources-wrapper[data-theme="dark"] .js-plotly-plot .bg {
+  background-color: #141c2e !important;
+}
+
+#sources-wrapper[data-theme="dark"] .js-plotly-plot .plotly .bg {
+  fill: #141c2e !important;
+}
+
+#sources-wrapper[data-theme="dark"] .js-plotly-plot .xtick text,
+#sources-wrapper[data-theme="dark"] .js-plotly-plot .ytick text {
+  fill: #dce8f5 !important;
+}
+
+#sources-wrapper[data-theme="dark"] .js-plotly-plot .xgrid line,
+#sources-wrapper[data-theme="dark"] .js-plotly-plot .ygrid line {
+  stroke: #1e2d47 !important;
+  opacity: 0.6 !important;
+}
+
+#sources-wrapper[data-theme="dark"] .js-plotly-plot .legend text {
+  fill: #dce8f5 !important;
+}
+
+/* ── Hover card-icon ──────────────────────────────────────────── */
+#sources-wrapper .chart-card:hover .card-icon {
+  background: var(--navy);
+  color: white;
+  transform: rotate(-5deg) scale(1.05);
+}
+
+#sources-wrapper[data-theme="dark"] .chart-card:hover .card-icon {
+  background: #4a80d4;
+  color: white;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  #sources-wrapper .row-2cols {
+    grid-template-columns: 1fr;
+  }
+}

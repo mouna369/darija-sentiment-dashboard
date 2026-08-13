@@ -1,0 +1,1142 @@
+/* ============================================================
+   statistique.css — Algérie Telecom
+   Scoped sous .stats-page-container pour éviter tout conflit
+   Palette : Vert #006633 | Orange #FF6B00 | Bleu #004C99 | Rouge #C0262A
+   ============================================================ */
+
+/* ── Reset scopé ─────────────────────────────────────────── */
+.stats-page-container *,
+.stats-page-container *::before,
+.stats-page-container *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   CONTENEUR GLOBAL
+   ══════════════════════════════════════════════════════════ */
+.stats-page-container {
+    background: #f0f4fb;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 100vh;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ── Carte de base ─────────────────────────────────────── */
+.stats-page-container .card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Mode sombre pour le titre de la page dans make_page_layout */
+[data-theme="dark"] .page-header h1,
+[data-theme="dark"] .page-title,
+[data-theme="dark"] h1.page-title {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .page-header .subtitle,
+[data-theme="dark"] .page-subtitle {
+    color: #cbd5e1 !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   LIGNE 1 — KPI 2×2 + graphique évolution
+   ══════════════════════════════════════════════════════════ */
+.stats-page-container .row-l1 {
+    display: grid;
+    grid-template-columns: 1fr 1.7fr;
+    gap: 12px;
+}
+
+/* Grille 2×2 des KPI */
+.stats-page-container .kpi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 12px;
+}
+
+/* ── Cartes KPI ─────────────────────────────────────────── */
+.stats-page-container .kpi-card {
+    border-radius: 20px;
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 110px;
+}
+
+.stats-page-container .kpi-green {
+    background: #00a854;
+}
+
+.stats-page-container .kpi-orange {
+    background: #f59e0b;
+}
+
+.stats-page-container .kpi-white {
+    background: #ffffff;
+}
+
+/* Icône ronde haut-droite */
+.stats-page-container .kpi-ico {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stats-page-container .kpi-ico-dk {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.stats-page-container .kpi-ico-lt {
+    background: #f0f4fb;
+}
+
+.stats-page-container .kpi-ico-svg {
+    width: 13px;
+    height: 13px;
+    overflow: visible;
+}
+
+/* ── Typo KPI ───────────────────────────────────────────── */
+.stats-page-container .lbl {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #8a9bb5;
+    text-transform: uppercase;
+}
+
+.stats-page-container .lbl-w {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+}
+
+.stats-page-container .val {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin: 6px 0 4px;
+    color: #1a2a4a;
+}
+
+/* ============================================================
+   statistique.css — Algérie Telecom
+   Scoped sous .stats-page-container pour éviter tout conflit
+   Palette : Vert #006633 | Orange #FF6B00 | Bleu #004C99 | Rouge #C0262A
+   ============================================================ */
+
+/* ── Reset scopé ─────────────────────────────────────────── */
+.stats-page-container *,
+.stats-page-container *::before,
+.stats-page-container *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ══════════════════════════════════════════════════════════
+   CONTENEUR GLOBAL
+   ══════════════════════════════════════════════════════════ */
+.stats-page-container {
+    background: #f0f4fb;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 100vh;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ══════════════════════════════════════════════════════════
+   HEADER AVEC DATE (gauche) ET BOUTON ACTUALISER (droite)
+   ══════════════════════════════════════════════════════════ */
+.stats-page-container .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.stats-page-container[data-theme="dark"] .dashboard-header {
+    border-bottom-color: #253656;
+}
+
+/* Groupe de gauche - Date */
+.stats-page-container .header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stats-page-container .update-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #64748b;
+    letter-spacing: 0.3px;
+}
+
+.stats-page-container[data-theme="dark"] .update-label {
+    color: #8a9bb5;
+}
+
+/* Groupe de droite - Date et bouton côte à côte */
+.stats-page-container .header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    /* Espace entre la date et le bouton */
+}
+
+/* Date badge */
+.stats-page-container .date-value {
+    font-size: 11px;
+    font-weight: 500;
+    color: #1e293b;
+    background: #f1f5f9;
+    padding: 6px 12px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Bouton actualiser */
+.stats-page-container #stats-refresh-btn {
+    background: white;
+    border: none;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.stats-page-container[data-theme="dark"] .date-value {
+    background: #1e2d47;
+    color: #dce8f5;
+}
+
+.stats-page-container .date-value i {
+    font-size: 10px;
+    color: #004C99;
+}
+
+.stats-page-container[data-theme="dark"] .date-value i {
+    color: #4a80d4;
+}
+
+/* Groupe de droite - Bouton actualiser */
+.stats-page-container .header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Bouton actualiser */
+.stats-page-container #stats-refresh-btn,
+.stats-page-container .refresh-btn {
+    background: #004C99;
+    border: none;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.stats-page-container #stats-refresh-btn:hover,
+.stats-page-container .refresh-btn:hover {
+    background: #003d7a;
+    transform: translateY(-1px);
+}
+
+.stats-page-container #stats-refresh-btn:active,
+.stats-page-container .refresh-btn:active {
+    transform: translateY(0px);
+}
+
+.stats-page-container[data-theme="dark"] #stats-refresh-btn,
+.stats-page-container[data-theme="dark"] .refresh-btn {
+    background: #0066cc;
+}
+
+.stats-page-container[data-theme="dark"] #stats-refresh-btn:hover,
+.stats-page-container[data-theme="dark"] .refresh-btn:hover {
+    background: #0052a3;
+}
+
+/* Icône du bouton */
+.stats-page-container #stats-refresh-btn i,
+.stats-page-container .refresh-btn i {
+    font-size: 10px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   CARTES AVEC TOOLTIP
+   ══════════════════════════════════════════════════════════ */
+.stats-page-container .chart-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 16px;
+    position: relative;
+    transition: box-shadow 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.stats-page-container .chart-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.stats-page-container[data-theme="dark"] .chart-card {
+    background: #141c2e;
+}
+
+/* Header de carte */
+.stats-page-container .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eef2f6;
+}
+
+.stats-page-container[data-theme="dark"] .card-header {
+    border-bottom-color: #253656;
+}
+
+.stats-page-container .card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: #eef2ff;
+    border-radius: 10px;
+    color: #004C99;
+}
+
+.stats-page-container[data-theme="dark"] .card-icon {
+    background: #1e2d47;
+    color: #4a80d4;
+}
+
+.stats-page-container .card-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: #1e293b;
+    text-transform: uppercase;
+    flex: 1;
+    margin-left: 10px;
+}
+
+.stats-page-container[data-theme="dark"] .card-title {
+    color: #dce8f5;
+}
+
+/* Tooltip wrapper */
+.stats-page-container .tooltip-wrapper {
+    position: relative;
+    display: inline-flex;
+    cursor: help;
+}
+
+.stats-page-container .tooltip-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #64748b;
+    font-size: 10px;
+    transition: all 0.2s ease;
+}
+
+.stats-page-container[data-theme="dark"] .tooltip-icon {
+    background: #253656;
+    color: #8a9bb5;
+}
+
+.stats-page-container .tooltip-icon:hover {
+    background: #cbd5e1;
+    color: #1e293b;
+}
+
+.stats-page-container[data-theme="dark"] .tooltip-icon:hover {
+    background: #3a4a6e;
+    color: #dce8f5;
+}
+
+/* Tooltip content */
+.stats-page-container .card-tooltip {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 8px;
+    background: #1e293b;
+    color: #f1f5f9;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 11px;
+    min-width: 220px;
+    max-width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 1000;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.stats-page-container .tooltip-wrapper:hover .card-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.stats-page-container .tooltip-title {
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-size: 10px;
+    color: #f59e0b;
+}
+
+.stats-page-container .tooltip-body {
+    font-size: 9px;
+    line-height: 1.4;
+    color: #cbd5e1;
+}
+
+.stats-page-container[data-theme="dark"] .card-tooltip {
+    background: #0f172a;
+    border: 1px solid #334155;
+}
+
+/* Full width card pour la ligne 1 */
+.stats-page-container .full-width-card {
+    grid-column: span 2;
+}
+
+/* ── Carte de base (legacy) ─────────────────────────────────────── */
+.stats-page-container .card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Mode sombre pour le titre de la page dans make_page_layout */
+[data-theme="dark"] .page-header h1,
+[data-theme="dark"] .page-title,
+[data-theme="dark"] h1.page-title {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .page-header .subtitle,
+[data-theme="dark"] .page-subtitle {
+    color: #cbd5e1 !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   LIGNE 1 — graphique évolution
+   ══════════════════════════════════════════════════════════ */
+.stats-page-container .row-l1 {
+    display: block;
+}
+
+/* ══════════════════════════════════════════════════════════
+   LIGNE 2 — OLS scatter + Thèmes
+   ══════════════════════════════════════════════════════════ */
+.stats-page-container .row-l2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+/* ── Liste thèmes ───────────────────────────────────────── */
+.stats-page-container .tl-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.stats-page-container .tl-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stats-page-container .tl-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stats-page-container .tl-name {
+    font-size: 11px;
+    color: #1a2a4a;
+    font-weight: 500;
+}
+
+.stats-page-container .tl-pct {
+    font-size: 11px;
+    font-weight: 800;
+    min-width: 32px;
+    text-align: right;
+}
+
+.stats-page-container .tl-bar {
+    display: flex;
+    height: 8px;
+    border-radius: 4px;
+    background: #f0f4f8;
+    overflow: hidden;
+}
+
+/* ══════════════════════════════════════════════════════════
+   LIGNE 3 — Coefficients + Odds ratios + Donut (3 cols)
+   ══════════════════════════════════════════════════════════ */
+.stats-page-container .row-l3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 14px;
+}
+
+/* Donut + légende côte à côte */
+.stats-page-container .donut-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.stats-page-container .donut-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.stats-page-container .donut-leg-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    color: #1a2a4a;
+}
+
+.stats-page-container .donut-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+.stats-page-container .donut-lbl {
+    flex: 1;
+    font-size: 10px;
+    color: #1a2a4a;
+}
+
+.stats-page-container .donut-val {
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 28px;
+    text-align: right;
+}
+
+/* Légende sous graphique évolution */
+.stats-page-container .cht-legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.stats-page-container .leg-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    color: #8a9bb5;
+}
+
+.stats-page-container .leg-line {
+    display: inline-block;
+    height: 2.5px;
+    width: 20px;
+    border-radius: 2px;
+}
+
+.stats-page-container .leg-green {
+    background: #006633;
+}
+
+.stats-page-container .leg-orange {
+    background: #FF6B00;
+    opacity: 0.7;
+}
+
+/* Plotly transparent en light */
+.stats-page-container .js-plotly-plot .main-svg {
+    background: transparent !important;
+}
+
+.stats-page-container .js-plotly-plot .bg {
+    fill: transparent !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   MODE SOMBRE — data-theme="dark" sur .stats-page-container
+   Toutes les couleurs Plotly sont gérées côté Python via _colors()
+   Le CSS dark gère uniquement les éléments HTML purs
+   ══════════════════════════════════════════════════════════ */
+
+/* Fond de page */
+.stats-page-container[data-theme="dark"] {
+    background: #0d1525;
+}
+
+/* Cartes */
+.stats-page-container[data-theme="dark"] .card {
+    background: #141c2e;
+}
+
+/* Textes */
+.stats-page-container[data-theme="dark"] .tl-name {
+    color: #dce8f5;
+}
+
+.stats-page-container[data-theme="dark"] .tl-bar {
+    background: #1e2d47;
+}
+
+/* Donut légende */
+.stats-page-container[data-theme="dark"] .donut-leg-item {
+    color: #dce8f5;
+}
+
+.stats-page-container[data-theme="dark"] .donut-lbl {
+    color: #dce8f5;
+}
+
+/* Plotly dark — fond des graphiques */
+.stats-page-container[data-theme="dark"] .js-plotly-plot .bg {
+    fill: #141c2e !important;
+}
+
+/* Grille et axes Plotly en dark */
+.stats-page-container[data-theme="dark"] .js-plotly-plot .gridlayer path,
+.stats-page-container[data-theme="dark"] .js-plotly-plot .gridlayer line {
+    stroke: #1e2d47 !important;
+}
+
+.stats-page-container[data-theme="dark"] .js-plotly-plot .cartesianlayer .axis path,
+.stats-page-container[data-theme="dark"] .js-plotly-plot .cartesianlayer .axis line {
+    stroke: #1e2d47 !important;
+}
+
+.stats-page-container[data-theme="dark"] .js-plotly-plot .cartesianlayer .axis .xtick text,
+.stats-page-container[data-theme="dark"] .js-plotly-plot .cartesianlayer .axis .ytick text {
+    fill: #8a9bb5 !important;
+}
+
+/* Labels de barres en dark */
+.stats-page-container[data-theme="dark"] .js-plotly-plot .barlayer text,
+.stats-page-container[data-theme="dark"] .js-plotly-plot .scatterlayer text {
+    fill: #dce8f5 !important;
+}
+
+/* Légende Plotly en dark */
+.stats-page-container[data-theme="dark"] .js-plotly-plot .legend .legendtext {
+    fill: #dce8f5 !important;
+}
+
+.stats-page-container[data-theme="dark"] .js-plotly-plot .legend .bg {
+    fill: #141c2e !important;
+    stroke: #1e2d47 !important;
+}
+
+/* Tooltip (hoverlabel) */
+.stats-page-container[data-theme="dark"] .js-plotly-plot .hoverlayer .hovertext text {
+    fill: #dce8f5 !important;
+}
+
+/* Annotations Plotly */
+.stats-page-container[data-theme="dark"] .js-plotly-plot .annotation-text text {
+    fill: #dce8f5 !important;
+}
+
+/* Donut labels Plotly */
+.stats-page-container[data-theme="dark"] .js-plotly-plot .pielayer text {
+    fill: #dce8f5 !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════════ */
+
+@media (max-width: 1100px) {
+    .stats-page-container .row-l1 {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-page-container .full-width-card {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .stats-page-container .row-l2,
+    .stats-page-container .row-l3 {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-page-container .dashboard-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    .stats-page-container {
+        padding: 10px;
+        gap: 10px;
+    }
+}
+
+.stats-page-container .val-w {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin: 6px 0 4px;
+    color: #fff;
+}
+
+.stats-page-container .sub {
+    font-size: 10px;
+    color: #8a9bb5;
+}
+
+.stats-page-container .sub-w {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* Ligne badge+sub dans le KPI blanc "Messages" */
+.stats-page-container .kpi-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 2px;
+}
+
+/* Badges */
+.stats-page-container .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+.stats-page-container .bu {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.stats-page-container .bd {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.stats-page-container .bw {
+    background: rgba(255, 255, 255, 0.22);
+    color: #fff;
+}
+
+/* ── Graphique ligne (carte droite L1) ──────────────────── */
+.stats-page-container .cht-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.stats-page-container .cht-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.stats-page-container .cht-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1a2a4a;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.stats-page-container .cht-sub {
+    font-size: 10px;
+    color: #8a9bb5;
+}
+
+/* Légende sous le graphique */
+.stats-page-container .cht-legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.stats-page-container .leg-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    color: #8a9bb5;
+}
+
+.stats-page-container .leg-line {
+    display: inline-block;
+    height: 2.5px;
+    width: 20px;
+    border-radius: 2px;
+}
+
+.stats-page-container .leg-green {
+    background: #006633;
+}
+
+.stats-page-container .leg-orange {
+    background: #FF6B00;
+    opacity: 0.7;
+}
+
+/* ══════════════════════════════════════════════════════════
+   LIGNE 2 — OLS scatter + Thèmes
+   ══════════════════════════════════════════════════════════ */
+.stats-page-container .row-l2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* ── Liste thèmes ───────────────────────────────────────── */
+.stats-page-container .tl-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.stats-page-container .tl-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stats-page-container .tl-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stats-page-container .tl-name {
+    font-size: 11px;
+    color: #1a2a4a;
+    font-weight: 500;
+}
+
+.stats-page-container .tl-pct {
+    font-size: 11px;
+    font-weight: 800;
+    min-width: 32px;
+    text-align: right;
+}
+
+.stats-page-container .tl-bar {
+    display: flex;
+    height: 8px;
+    border-radius: 4px;
+    background: #f0f4f8;
+    overflow: hidden;
+}
+
+/* ══════════════════════════════════════════════════════════
+   LIGNE 3 — Coefficients + Odds ratios + Donut (3 cols)
+   ══════════════════════════════════════════════════════════ */
+.stats-page-container .row-l3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+/* Donut + légende côte à côte */
+.stats-page-container .donut-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.stats-page-container .donut-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.stats-page-container .donut-leg-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    color: #1a2a4a;
+}
+
+.stats-page-container .donut-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+.stats-page-container .donut-lbl {
+    flex: 1;
+    font-size: 10px;
+    color: #1a2a4a;
+}
+
+.stats-page-container .donut-val {
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 28px;
+    text-align: right;
+}
+
+/* Plotly transparent en light */
+.stats-page-container .js-plotly-plot .main-svg {
+    background: transparent !important;
+}
+
+.stats-page-container .js-plotly-plot .bg {
+    fill: transparent !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   MODE SOMBRE — data-theme="dark" sur .stats-page-container
+   Toutes les couleurs Plotly sont gérées côté Python via _colors()
+   Le CSS dark gère uniquement les éléments HTML purs
+   ══════════════════════════════════════════════════════════ */
+
+/* Fond de page */
+.stats-page-container[data-theme="dark"] {
+    background: #0d1525;
+}
+
+/* Cartes */
+.stats-page-container[data-theme="dark"] .card {
+    background: #141c2e;
+}
+
+.stats-page-container[data-theme="dark"] .kpi-white {
+    background: #1e2d47;
+}
+
+/* Icône light sur fond dark */
+.stats-page-container[data-theme="dark"] .kpi-ico-lt {
+    background: #253656;
+}
+
+/* Textes */
+.stats-page-container[data-theme="dark"] .lbl {
+    color: #8a9bb5;
+}
+
+.stats-page-container[data-theme="dark"] .val {
+    color: #dce8f5;
+}
+
+.stats-page-container[data-theme="dark"] .sub {
+    color: #607b99;
+}
+
+.stats-page-container[data-theme="dark"] .cht-title {
+    color: #dce8f5;
+}
+
+.stats-page-container[data-theme="dark"] .cht-sub {
+    color: #607b99;
+}
+
+/* Légende graphique */
+.stats-page-container[data-theme="dark"] .leg-item {
+    color: #607b99;
+}
+
+/* Thèmes liste */
+.stats-page-container[data-theme="dark"] .tl-name {
+    color: #dce8f5;
+}
+
+.stats-page-container[data-theme="dark"] .tl-bar {
+    background: #1e2d47;
+}
+
+/* Donut légende */
+.stats-page-container[data-theme="dark"] .donut-leg-item {
+    color: #dce8f5;
+}
+
+.stats-page-container[data-theme="dark"] .donut-lbl {
+    color: #dce8f5;
+}
+
+/* Badges */
+.stats-page-container[data-theme="dark"] .bu {
+    background: rgba(0, 102, 51, 0.30);
+    color: #4ade80;
+}
+
+.stats-page-container[data-theme="dark"] .bd {
+    background: rgba(192, 38, 42, 0.30);
+    color: #f87171;
+}
+
+/* Plotly dark — fond des graphiques */
+.stats-page-container[data-theme="dark"] .js-plotly-plot .bg {
+    fill: #141c2e !important;
+}
+
+/* Grille et axes Plotly en dark (complément Python) */
+.stats-page-container[data-theme="dark"] .js-plotly-plot .gridlayer path,
+.stats-page-container[data-theme="dark"] .js-plotly-plot .gridlayer line {
+    stroke: #1e2d47 !important;
+}
+
+.stats-page-container[data-theme="dark"] .js-plotly-plot .cartesianlayer .axis path,
+.stats-page-container[data-theme="dark"] .js-plotly-plot .cartesianlayer .axis line {
+    stroke: #1e2d47 !important;
+}
+
+.stats-page-container[data-theme="dark"] .js-plotly-plot .cartesianlayer .axis .xtick text,
+.stats-page-container[data-theme="dark"] .js-plotly-plot .cartesianlayer .axis .ytick text {
+    fill: #8a9bb5 !important;
+}
+
+/* Labels de barres en dark */
+.stats-page-container[data-theme="dark"] .js-plotly-plot .barlayer text,
+.stats-page-container[data-theme="dark"] .js-plotly-plot .scatterlayer text {
+    fill: #dce8f5 !important;
+}
+
+/* Légende Plotly en dark */
+.stats-page-container[data-theme="dark"] .js-plotly-plot .legend .legendtext {
+    fill: #dce8f5 !important;
+}
+
+.stats-page-container[data-theme="dark"] .js-plotly-plot .legend .bg {
+    fill: #141c2e !important;
+    stroke: #1e2d47 !important;
+}
+
+/* Tooltip (hoverlabel) — couleur fond gérée Python, on renforce le texte */
+.stats-page-container[data-theme="dark"] .js-plotly-plot .hoverlayer .hovertext text {
+    fill: #dce8f5 !important;
+}
+
+/* Annotations Plotly (R², "Risque neutre") */
+.stats-page-container[data-theme="dark"] .js-plotly-plot .annotation-text text {
+    fill: #dce8f5 !important;
+}
+
+/* Donut labels Plotly */
+.stats-page-container[data-theme="dark"] .js-plotly-plot .pielayer text {
+    fill: #dce8f5 !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════════ */
+
+@media (max-width: 1100px) {
+    .stats-page-container .row-l1 {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .stats-page-container .row-l2,
+    .stats-page-container .row-l3 {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-page-container .kpi-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .stats-page-container .kpi-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-page-container {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .stats-page-container .val,
+    .stats-page-container .val-w {
+        font-size: 24px;
+    }
+
+    .stats-page-container .donut-row {
+        flex-direction: column;
+    }
+}
